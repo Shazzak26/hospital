@@ -29,12 +29,14 @@ def loginV(request):
         )
         if user is not None:
             login(request, user)
-            # messages.success(request, f'login success !')
-            # messages.error(request, f'invalid username or passsword')
+            messages.success(request, f'Login success')
+            
             if request.POST.get('next'):
                 return redirect(request.POST.get('next').strip())
             else:
                 return redirect('home')
+        else:
+            messages.error(request, f'Invalid username or passsword.')
     return render(request, 'user/login.html')
 
 
