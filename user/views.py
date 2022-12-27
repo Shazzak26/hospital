@@ -13,16 +13,28 @@ def register(request):
     if request.method=='POST':
         form = signupform(request.POST)
         if form.is_valid():
-            form.save
-
-
-ddddddd
-
+            form.save()
+            username=form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username} successfully!')
+        else:
+            messages.error(request, f'couldnt create account')
     return render(request, 'user/register.html')
 
 
 def loginV(request):
-    
+    if request.method=="POST":
+        user=authenticate(
+            username=request.POST.get('username'),
+            password=request.POST.get('password')
+        )
+        if user is not None:
+            login(request, user)
+            # messages.success(request, f'login success !')
+            # messages.error(request, f'invalid username or passsword')
+            if request.POST.get('next'):
+                return redirect(request.POST.get('next').strip())
+            else:
+                return redirect('home')
     return render(request, 'user/login.html')
 
 
