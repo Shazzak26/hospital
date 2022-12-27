@@ -16,7 +16,7 @@ def register(request):
             form.save
 
 
-
+ddddddd
 
     return render(request, 'user/register.html')
 
