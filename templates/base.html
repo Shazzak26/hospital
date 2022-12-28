@@ -86,6 +86,9 @@
               <a class="nav-link" href="{% url 'doctors' %}">Doctors</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'patients' %}">patients</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'news' %}">News</a>
             </li>
             <li class="nav-item">
@@ -106,8 +109,8 @@
                 </button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Profile</a>
-                  <!-- <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a> -->
+                  <a class="dropdown-item" href="{% url 'admin_login' %} ">admin-login</a>
+                  <a class="dropdown-item" href="{% url 'index' %}">admin-dashboard</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href=" #"> {% if request.user.is_authenticated %}
                     <li class="nav-item">

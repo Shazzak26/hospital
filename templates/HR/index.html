@@ -1,9 +1,38 @@
 
 {% extends "base.html" %}
-{% load static %}
 
+{% load static %}
 {% block content %}
-  
-<h1> This is blog!</h1>
+
+<div class="page-banner overlay-dark bg-image" style="background-image: url({% static 'img/1.jpg' %});">
+    <br>
+<div class="container" style="margin-top: 40px; color: rgb(255, 255, 255);">
+    <h1 class="text-center">Admin control</h1>
+    <br>
+    <div class="row mt-lg-3 text-center">
+      
+        <div class="col-lg-3">
+            <h4><i class="fa fa-user-plus" aria-hidden="true"> Add Doctors</i></h4>
+            <p class="font-weight-bold mt-1"><a href="{% url 'add_doctor' %}"> click to add</a></p>
+    
+          </div>
+          <div class="col-lg-3">
+            <h4><i class="fa fa-user-plus" aria-hidden="true"> Add Apointment</i></h4>
+            <p class="font-weight-bold mt-1"><a href="{% url 'add_appointment' %}">click to see</a></p>
+          </div>
+          <div class="col-lg-3">
+        <h4><i class="fa fa-user-plus" aria-hidden="true"> Add Patient</i></h4>
+        <p class="text-danger font-weight-bold mt-1"><a href="{% url 'add_patient' %}">click to add</a> </p>
+      </div>
+      <div class="col-lg-3">
+        <h4><i class="fa fa-user-plus"> Edit another workers</i></h4>
+        <p class="font-weight-bold"><a href="{% url 'workers' %}"> click to see</a></p>
+      </div>
+      
+      
+    </div>
+</div>
+<br>
+<br>
 
 {% endblock content %}
